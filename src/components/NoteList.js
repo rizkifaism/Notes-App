@@ -1,14 +1,18 @@
 import React from "react";
 import NoteItem from "./NoteItem";
 
-function NotesList({ notes, onDelete, onArchive }) {
-  return (
-    <div className="notes-list">
-      {notes.map((note) => (
-        <NoteItem key={note.id} id={note.id} onDelete={onDelete} onArchive={onArchive} {...note} />
-      ))}
-    </div>
-  );
+class NoteList extends React.Component {
+  render() {
+    return this.props.notes.length > 0 ? (
+      <div className="notes-list">
+        {this.props.notes.map((note) => (
+          <NoteItem key={note.id} id={note.id} onDelete={this.props.onDelete} onArchive={this.props.onArchive} {...note} />
+        ))}
+      </div>
+    ) : (
+      <p className="notes-list__empty-message">Tidak ada catatan</p>
+    );
+  }
 }
 
-export default NotesList;
+export default NoteList;

@@ -1,11 +1,9 @@
 import React from "react";
-import { getInitialData } from "../utils";
 
-function ArchiveButton({ id, onArchive }) {
-  const data = getInitialData();
+function ArchiveButton({ id, onArchive, archived }) {
   return (
     <button className="note-item__archive-button" onClick={() => onArchive(id)}>
-      {data.archived ? "Pindahkan" : "Arsipkan"}
+      {archived ? "Pindahkan" : "Arsipkan"}
     </button>
   );
 }
